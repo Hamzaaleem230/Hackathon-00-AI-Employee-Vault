@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Employee Vault - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .card { margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .status-badge { font-size: 0.8rem; }
+        .btn-sm-custom { padding: 0.25rem 0.5rem; font-size: 0.75rem; }
+        /* Naya style clickable file name ke liye */
+        .file-link { color: #0d6efd; cursor: pointer; text-decoration: underline; font-weight: bold; }
+        .file-link:hover { color: #0a58ca; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">🤖 AI Employee Vault Dashboard</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card text-center p-3 bg-primary text-white">
+                    <h5>Pending</h5>
+                    <h3>{{ folders.pending|length }}</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center p-3 bg-success text-white">
+                    <h5>Approved</h5>
+                    <h3>{{ folders.approved|length }}</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center p-3 bg-danger text-white">
+                    <h5>Rejected</h5>
+                    <h3>{{ folders.rejected|length }}</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center p-3 bg-secondary text-white">
+                    <h5>Done</h5>
+                    <h3>{{ folders.done|length }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header bg-white"><strong>Recent AI Decisions</strong></div>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>File Name</th>
+                            <th>Decision</th>
+                            <th>Confidence</th>
+                            <th>AI Reasoning</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for file, info in ai_info.items() %}
+                        <tr>
+                            <td><code class="file-link" onclick="previewFile('{{ file }}')">{{ file }}</code></td>
+                            <td>
+                                <span class="badge {% if info.decision == 'Approved' %}bg-success{% else %}bg-danger{% endif %}">
+                                    {{ info.decision }}
+                                </span>
+                            </td>
+                            <td>{{ (info.confidence * 100)|round(1) }}%</td>
+                            <td class="text-muted small">{{ info.reasoning }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <button onclick="manualAction('{{ file }}', 'Approved')" class="btn btn-outline-success btn-sm">Approve</button>
+                                    <button onclick="manualAction('{{ file }}', 'Rejected')" class="btn btn-outline-danger btn-sm">Reject</button>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">File Content</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <pre id="fileContent" style="white-space: pre-wrap; background: #f1f1f1; padding: 15px; border-radius: 5px; font-size: 0.9rem; max-height: 400px; overflow-y: auto;"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    // Naya function: File preview fetch karne ke liye
+    function previewFile(filename) {
+        fetch('/get-file-content/' + filename)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('modalTitle').innerText = "Preview: " + filename;
+                document.getElementById('fileContent').innerText = data.content;
+                var myModal = new bootstrap.Modal(document.getElementById('previewModal'));
+                myModal.show();
+            })
+            .catch(error => alert('Could not load file content.'));
+    }
+
+    function manualAction(filename, action) {
+        if(confirm('Are you sure you want to ' + action + ' this file?')) {
+            fetch('/manual-action', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ filename: filename, action: action })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Something went wrong!');
+            });
+        }
+    }
+    </script>
+</body>
+</html>

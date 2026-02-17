@@ -1,0 +1,22 @@
+{"timestamp": "2026-02-17 22:21:58", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:21:59", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:23:50", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:26:48", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:26:49", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:36:12", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:36:12", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:39:05", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:39:06", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:46:56", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:46:57", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:51:16", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:51:17", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:52:16", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:52:16", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:55:45", "file": "invoice.txt", "decision": "Rejected", "confidence": 0.98, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 22:55:47", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0.9, "reasoning": "Manually Rejected by Admin."}
+{"timestamp": "2026-02-17 23:27:27", "file": "file_reject.md", "decision": "Rejected", "confidence": 1.0, "reasoning": "The document explicitly states 'please reject this request'."}
+{"timestamp": "2026-02-17 23:27:29", "file": "invoice.txt", "decision": "Approved", "confidence": 0.95, "reasoning": "The document states that the project is on track and within budget, with a direct request for approval."}
+{"timestamp": "2026-02-17 23:27:35", "file": "new_task.txt", "decision": "Approved", "confidence": 0.85, "reasoning": "Manually Approved by Admin."}
+{"timestamp": "2026-02-17 23:27:37", "file": "test_final.txt", "decision": "Rejected", "confidence": 0.9, "reasoning": "The document is a request for project budget approval, but lacks sufficient details, context, or authorization for an AI Employee Vault to make a decision."}
+{"timestamp": "2026-02-17 23:27:39", "file": "test_urgent.txt", "decision": "Approved", "confidence": 0.95, "reasoning": "The travel request is for a tech conference, indicating business relevance, and explicitly states all costs are within budget."}
