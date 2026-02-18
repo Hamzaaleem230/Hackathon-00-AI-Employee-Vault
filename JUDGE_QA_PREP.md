@@ -17,6 +17,8 @@ This document contains a comprehensive list of potential questions from hackatho
 **A:** We utilize an asynchronous task pipeline. This ensures that the Folder Watcher can continue detecting new files while the AI Decision Engine processes previous ones in parallel. This prevents bottlenecks and ensures the system remains responsive even under heavy loads.
 
 **Q3: Why did you choose a "Watcher" approach instead of a traditional manual upload?**
+
+
 **A:** Our goal is to simulate a "Digital Employee." In a real-world office, files arrive via emails, shared drives, or scanners. By using a Watcher, we integrate directly into existing workflows, removing the human step of "uploading to a portal" and achieving true automation.
 
 ---
