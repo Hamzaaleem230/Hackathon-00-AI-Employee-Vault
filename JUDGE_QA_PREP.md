@@ -5,6 +5,8 @@ This document contains a comprehensive list of potential questions from hackatho
 ## 🛠️ Category 1: Technical Architecture & Performance
 
 **Q1: Can you walk us through the high-level architecture of the AI Employee Vault?**
+
+
 **A:** The system operates on a "Listen-Analyze-Act" architecture. A dedicated **Folder Watcher** service acts as the entry point, detecting file arrivals. These files are passed to our **Task Workflow Pipeline**, which orchestrates the data extraction. The **AI Decision Engine** then processes the content against business logic, and finally, the results are synced to a **Cloud Database** and reflected instantly on the **Dashboard UI**.
 
 
