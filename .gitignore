@@ -1,3 +1,35 @@
+# --- Python ---
 venv/
 __pycache__/
+*.pyc
+
+# --- Secrets ---
+# The .env file contains sensitive API keys and credentials and must not be committed.
 .env
+*.session # Exclude session files (e.g., WhatsApp sessions)
+
+# --- IDEs ---
+.idea/
+.vscode/
+
+# --- Logs ---
+# The Logs directory should not be version controlled.
+Logs/
+
+# --- Transient State ---
+# These folders contain files that represent a temporary state of a running agent
+# and should not be synced via Git to avoid conflicts.
+In_Progress/
+Awaiting_Human_Review/
+Done/
+Rejected/
+Approved/
+Pending_Approval/
+Inbox/
+Needs_Action/
+Signals/ # Cloud agent writes updates here, merged by Local. Should not be synced.
+Updates/ # Cloud agent writes updates here, merged by Local. Should not be synced.
+
+# --- OS ---
+.DS_Store
+Thumbs.db

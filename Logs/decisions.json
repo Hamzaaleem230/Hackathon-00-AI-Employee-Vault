@@ -1,22 +1,32 @@
-{"timestamp": "2026-02-17 22:21:58", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:21:59", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:23:50", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:26:48", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:26:49", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:36:12", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:36:12", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:39:05", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:39:06", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:46:56", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:46:57", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:51:16", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:51:17", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:52:16", "file": "invoice.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:52:16", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:55:45", "file": "invoice.txt", "decision": "Rejected", "confidence": 0.98, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 22:55:47", "file": "test_urgent.txt", "decision": "Rejected", "confidence": 0.9, "reasoning": "Manually Rejected by Admin."}
-{"timestamp": "2026-02-17 23:27:27", "file": "file_reject.md", "decision": "Rejected", "confidence": 1.0, "reasoning": "The document explicitly states 'please reject this request'."}
-{"timestamp": "2026-02-17 23:27:29", "file": "invoice.txt", "decision": "Approved", "confidence": 0.95, "reasoning": "The document states that the project is on track and within budget, with a direct request for approval."}
-{"timestamp": "2026-02-17 23:27:35", "file": "new_task.txt", "decision": "Approved", "confidence": 0.85, "reasoning": "Manually Approved by Admin."}
-{"timestamp": "2026-02-17 23:27:37", "file": "test_final.txt", "decision": "Rejected", "confidence": 0.9, "reasoning": "The document is a request for project budget approval, but lacks sufficient details, context, or authorization for an AI Employee Vault to make a decision."}
-{"timestamp": "2026-02-17 23:27:39", "file": "test_urgent.txt", "decision": "Approved", "confidence": 0.95, "reasoning": "The travel request is for a tech conference, indicating business relevance, and explicitly states all costs are within budget."}
+[
+    {
+        "timestamp": "2026-03-07T20:48:30.216699",
+        "agent": "local_agent",
+        "details": {
+            "task_id": "4aae2966-504d-4ab6-9b1f-e5422c9bdf2a",
+            "action": "email_sent",
+            "subject": "Second Email Test",
+            "original_file": "email_two.txt"
+        }
+    },
+    {
+        "timestamp": "2026-03-07T20:48:30.239240",
+        "agent": "local_agent",
+        "details": {
+            "task_id": "7d6bfd45-8d3f-44aa-aade-ef8e1668c65a",
+            "action": "email_sent",
+            "subject": "First Email Test",
+            "original_file": "email_one.txt"
+        }
+    },
+    {
+        "timestamp": "2026-03-07T20:48:30.268964",
+        "agent": "local_agent",
+        "details": {
+            "task_id": "ec5b78e3-a9b5-4dc9-8a28-765872979dcb",
+            "action": "email_sent",
+            "subject": "Project Update Request",
+            "original_file": "project_update.txt"
+        }
+    }
+]

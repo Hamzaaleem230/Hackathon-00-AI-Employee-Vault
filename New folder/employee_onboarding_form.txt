@@ -1,0 +1,7 @@
+Content: > EMPLOYEE RECORD - CONFIDENTIAL
+Name: Syed Hamza
+Designation: Senior AI Developer
+Department: Software Engineering
+Date of Joining: February 18, 2026
+Status: Full-time
+This document confirms the official onboarding and resource allocation for the new employee. Please approve the vault access for secure data handling.

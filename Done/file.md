@@ -1,1 +1,0 @@
-This is urgent salary approval request.
