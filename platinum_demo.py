@@ -123,7 +123,9 @@ def _verify_state():
     print("--- Verifying final state ---")
     
     # Check Inbox and Processed
-    assert len(os.listdir(INBOX_DIR)) == 0, "Inbox should be empty."
+# Sirf files check karein, 'Processed' folder ko ignore karein
+    inbox_files = [f for f in os.listdir(INBOX_DIR) if os.path.isfile(os.path.join(INBOX_DIR, f))]
+    assert len(inbox_files) == 0, f"Inbox should be empty of files, found: {inbox_files}"
     assert len(os.listdir(INBOX_PROCESSED_DIR)) == 1, "Inbox/Processed should contain one email."
     print("Inbox and Inbox/Processed state: OK")
 
