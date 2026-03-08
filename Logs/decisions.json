@@ -1,42 +1,12 @@
 [
     {
-        "timestamp": "2026-03-08T20:34:26.892225",
+        "timestamp": "2026-03-08T20:41:07.074616",
         "agent": "local_agent",
         "details": {
-            "task_id": "a37bb0e4-9bf7-43eb-b60f-b19ca78fb0fe",
+            "task_id": "aa3ecda9-c582-4133-8f75-b9487de8e92d",
             "action": "email_sent",
             "subject": "Demo Email for Platinum Flow",
             "original_file": "demo_email.txt"
-        }
-    },
-    {
-        "timestamp": "2026-03-08T20:34:46.898895",
-        "agent": "local_agent",
-        "details": {
-            "task_id": "notes",
-            "action": "email_sent",
-            "subject": "N/A",
-            "original_file": "N/A"
-        }
-    },
-    {
-        "timestamp": "2026-03-08T20:34:56.946743",
-        "agent": "local_agent",
-        "details": {
-            "task_id": "class",
-            "action": "email_sent",
-            "subject": "N/A",
-            "original_file": "N/A"
-        }
-    },
-    {
-        "timestamp": "2026-03-08T20:35:27.024377",
-        "agent": "local_agent",
-        "details": {
-            "task_id": "1b84a369-bba1-433a-b310-cc7714a93d50",
-            "action": "email_sent",
-            "subject": "Draft Reply:",
-            "original_file": "class.txt"
         }
     }
 ]
