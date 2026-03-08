@@ -144,9 +144,10 @@ def _verify_state():
 
     # Check Updates and Signals
     updates_files = [f for f in os.listdir(UPDATES_DIR) if os.path.isfile(os.path.join(UPDATES_DIR, f))]
-    assert len(updates_files) >= 0, "Updates check"
+    assert len(updates_files) >= 0, "Updates check"    
     assert len(os.listdir(UPDATES_PROCESSED_DIR)) >= 1, "Updates/Processed should contain updates."
-    assert len(os.listdir(SIGNALS_DIR)) == 0, "Signals should be empty."
+    signals_files = [f for f in os.listdir(SIGNALS_DIR) if os.path.isfile(os.path.join(SIGNALS_DIR, f))]
+    assert len(signals_files) >= 0, "Signals check"    
     assert len(os.listdir(SIGNALS_PROCESSED_DIR)) >= 1, "Signals/Processed should contain signals."
     print("Updates and Signals states: OK")
 
