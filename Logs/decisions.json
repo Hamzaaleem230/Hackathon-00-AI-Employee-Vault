@@ -18,5 +18,15 @@
             "subject": "Draft Reply:",
             "original_file": "test.txt"
         }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:25.327965",
+        "agent": "local_agent",
+        "details": {
+            "task_id": "notes",
+            "action": "email_sent",
+            "subject": "N/A",
+            "original_file": "N/A"
+        }
     }
 ]
