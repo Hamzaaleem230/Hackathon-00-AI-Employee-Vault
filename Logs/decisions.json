@@ -8,5 +8,25 @@
             "subject": "Demo Email for Platinum Flow",
             "original_file": "demo_email.txt"
         }
+    },
+    {
+        "timestamp": "2026-03-08T20:34:46.898895",
+        "agent": "local_agent",
+        "details": {
+            "task_id": "notes",
+            "action": "email_sent",
+            "subject": "N/A",
+            "original_file": "N/A"
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:34:56.946743",
+        "agent": "local_agent",
+        "details": {
+            "task_id": "class",
+            "action": "email_sent",
+            "subject": "N/A",
+            "original_file": "N/A"
+        }
     }
 ]
