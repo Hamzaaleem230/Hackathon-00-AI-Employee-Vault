@@ -1,30 +1,46 @@
+import xmlrpc.client
+import psycopg2 # Neon DB ke liye (pip install psycopg2-binary)
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 class OdooMCP:
-    """
-    Mock MCP for Odoo Community (JSON-RPC APIs).
-    Simulates integration with Odoo for accounting tasks.
-    """
-    _instance = None
+    def __init__(self):
+        self.url = os.getenv("ODOO_URL")
+        self.db = os.getenv("ODOO_DB")
+        self.username = os.getenv("ODOO_USER")
+        self.password = os.getenv("ODOO_PASS")
+        self.neon_url = os.getenv("NEON_DB_URL")
 
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super(OdooMCP, cls).__new__(cls)
-            print("[ODoo MCP]: Initializing mock Odoo MCP.")
-            # In a real scenario, this would establish connection to Odoo
-        return cls._instance
+    def create_invoice(self, customer_name, amount, task_id="DEMO-001"):
+        try:
+            # 1. Odoo Connection
+            common = xmlrpc.client.ServerProxy(f'{self.url}/xmlrpc/2/common')
+            uid = common.authenticate(self.db, self.username, self.password, {})
+            models = xmlrpc.client.ServerProxy(f'{self.url}/xmlrpc/2/object')
 
-    def create_invoice(self, customer_info: dict, items: list, amount: float) -> str:
-        print(f"[ODoo MCP]: Mock: Creating invoice for {customer_info.get('name', 'N/A')} for ${amount}.")
-        # Simulate Odoo API call
-        return f"invoice_Odoo_ID_12345_{customer_info.get('name', 'N/A')}"
+            # 2. Odoo mein Invoice banana
+            partner_id = models.execute_kw(self.db, uid, self.password, 'res.partner', 'name_create', [customer_name])[0]
+            inv_id = models.execute_kw(self.db, uid, self.password, 'account.move', 'create', [{
+                'partner_id': partner_id,
+                'move_type': 'out_invoice',
+                'invoice_line_ids': [(0, 0, {'name': 'AI Service', 'price_unit': amount, 'quantity': 1})]
+            }])
+            
+            # 3. Neon DB mein Audit Log daalna (Zaroori for Gold Tier)
+            conn = psycopg2.connect(self.neon_url)
+            cur = conn.cursor()
+            cur.execute(
+                "INSERT INTO odoo_audit_logs (task_id, action_type, odoo_invoice_id, amount) VALUES (%s, %s, %s, %s)",
+                (task_id, 'Invoice Created', str(inv_id), amount)
+            )
+            conn.commit()
+            cur.close()
+            conn.close()
 
-    def get_account_balance(self, account_name: str) -> float:
-        print(f"[ODoo MCP]: Mock: Getting balance for account '{account_name}'.")
-        # Simulate Odoo API call
-        return 15000.00 # Mock balance
-
-    def process_expense(self, employee_id: str, description: str, amount: float) -> str:
-        print(f"[ODoo MCP]: Mock: Processing expense for employee {employee_id}: {description} - ${amount}.")
-        # Simulate Odoo API call
-        return f"expense_Odoo_ID_67890_{employee_id}"
-
-    # Add more mock methods as needed for Odoo integration
+            print(f"✅ Success! Invoice #{inv_id} created and logged to Neon.")
+            return f"INV-{inv_id}"
+        except Exception as e:
+            print(f"❌ Error in Integration: {e}")
+            return None

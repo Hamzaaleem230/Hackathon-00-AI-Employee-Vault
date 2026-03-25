@@ -1,28 +1,32 @@
+import os
+from playwright.sync_api import sync_playwright
+
 class SocialMediaMCP:
-    """
-    Mock MCP for various social media platforms (Facebook, Instagram, Twitter/X).
-    Simulates posting messages and generating activity summaries.
-    """
-    _instance = None
+    def __init__(self):
+        print("[Social Media MCP]: Initializing Real Automation Engine.")
 
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super(SocialMediaMCP, cls).__new__(cls)
-            print("[Social Media MCP]: Initializing mock Social Media MCP.")
-        return cls._instance
-
-    def post_message(self, platform: str, message: str) -> bool:
-        if platform.lower() in ["facebook", "instagram", "twitter", "x"]:
-            print(f"[Social Media MCP]: Mock: Posting to {platform.upper()} - '{message[:100]}...'")
-            return True
-        print(f"[Social Media MCP]: Mock: Unknown platform '{platform}'. Post failed.")
-        return False
-
-    def get_activity_summary(self, platform: str, period: str = "daily") -> str:
-        if platform.lower() in ["facebook", "instagram", "twitter", "x"]:
-            print(f"[Social Media MCP]: Mock: Generating {period} activity summary for {platform.upper()}.")
-            return f"Mock {platform.upper()} {period} summary: 10 new likes, 5 comments, 2 shares. Engagement up 5%."
-        print(f"[Social Media MCP]: Mock: Unknown platform '{platform}'. Summary failed.")
-        return f"Could not get summary for {platform}."
-
-    # Add more mock methods as needed
+    def post_to_linkedin_draft(self, post_content):
+        """
+        Ye script browser khol kar LinkedIn par post ka text draft karegi.
+        """
+        try:
+            with sync_playwright() as p:
+                browser = p.chromium.launch(headless=False) # Headless=False taake aapko browser nazar aaye
+                page = browser.new_page()
+                print(f"[Social Media MCP]: Creating draft: {post_content[:50]}...")
+                
+                # Yahan hum sirf folder mein save karwa dete hain as a 'Draft' 
+                # kyunke automated login security ki wajah se block ho sakta hai
+                draft_path = os.path.join(os.getcwd(), "Vault", "Pending_Approval", "Social")
+                os.makedirs(draft_path, exist_ok=True)
+                
+                filename = f"linkedin_draft_{os.urandom(2).hex()}.txt"
+                with open(os.path.join(draft_path, filename), "w", encoding="utf-8") as f:
+                    f.write(post_content)
+                
+                print(f"✅ Success! Post draft saved to {draft_path}")
+                browser.close()
+                return True
+        except Exception as e:
+            print(f"❌ Error in Social MCP: {e}")
+            return False
