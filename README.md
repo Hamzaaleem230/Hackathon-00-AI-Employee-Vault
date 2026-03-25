@@ -1,206 +1,235 @@
-<<<<<<< HEAD
-# 🤖 AI Employee Vault: Autonomous Enterprise Document Governance
-> **"Transforming unstructured corporate data into actionable business intelligence through autonomous AI auditing."**
+# 🤖 AI Employee Vault (Autonomous Digital FTE)
+
+> **"Transforming unstructured corporate data into actionable intelligence through autonomous AI governance and business automation."**
 
 ---
 
 ## 📌 Problem Statement 📝
-In modern enterprises, the sheer volume of daily documents—invoices, payroll summaries, legal forms, and operational tasks—creates massive administrative bottlenecks. Manual auditing is slow, prone to human error, and lacks real-time visibility. Companies struggle with:
 
-* **⏳ High Latency:** Critical approvals taking days.
-* **🧩 Context Fragmentation:** Decisions made without full data context.
-* **🔍 Lack of Audit Trails:** Difficulty in tracking why a document was approved or rejected.
+Modern enterprises face overwhelming volumes of documents and operational tasks—ranging from invoices and payroll to compliance and marketing workflows. Traditional systems suffer from:
+
+- ⏳ **High Latency:** Slow approvals and delayed decision-making  
+- 🧩 **Context Fragmentation:** Disconnected systems (ERP, files, reports)  
+- 🔍 **Lack of Auditability:** No clear reasoning behind approvals/rejections  
+- 🔄 **Manual Overhead:** Human dependency in repetitive operational workflows  
 
 ---
 
 ## 💡 Solution Overview 🌟
-The **AI Employee Vault** is an autonomous, end-to-end automation platform that acts as a digital compliance officer. It monitors file systems, interprets document context using the **Gemini 2.0 Flash AI**, and executes governance decisions (Approve/Reject) with detailed reasoning—all while maintaining a real-time, searchable cloud audit trail.
+
+The **AI Employee Vault** is an **Autonomous Digital FTE (Full-Time Employee)** that acts as a **compliance officer + operations manager**.
+
+It intelligently:
+- Monitors incoming documents  
+- Understands context using LLMs (Gemini / Claude)  
+- Executes decisions (Approve / Reject / Act)  
+- Automates business workflows (ERP + Social Media)  
+- Maintains a **real-time cloud audit trail**
 
 ---
 
 ## 🚀 Key Features ✨
-* **🕵️ Autonomous Watcher Engine:** Real-time monitoring of document ingestion points.
-* **🧠 Context-Aware AI Auditing:** Uses LLMs to understand the *intent* of a file, not just keywords.
-* **⚙️ Dynamic Task Engine:** Processes complex JSON-based operational tasks with state management.
-* **📊 Enterprise Dashboard:** Live monitoring with auto-refreshing analytics and file previews.
-* **📜 Governance Audit History:** A searchable database of every AI decision with CSV export capability.
-* **🛡️ Resilient Architecture:** Built-in API retry logic, priority queuing, and robust error handling.
+
+### 🕵️ Autonomous Watcher Engine
+- Real-time monitoring of file systems and task directories  
+- Detects new documents and triggers AI processing  
+
+### 🧠 Context-Aware AI Auditing
+- Uses LLMs to interpret **intent**, not just keywords  
+- Returns structured JSON decisions with:
+  - Confidence Score  
+  - Reasoning  
+  - Action  
+
+### ⚙️ Dynamic Task Engine
+- Processes JSON-based operational tasks  
+- Supports state transitions: Pending → Processing → Completed / Failed  
+
+### 🧾 Proactive Accounting (Odoo Integration)
+- Automatically generates invoices via **Odoo JSON-RPC API**  
+- Syncs financial operations without manual input  
+
+### 📣 Social Media Automation
+- Generates marketing content using AI  
+- Automates posting workflows via **Playwright browser automation**  
+
+### 📊 Enterprise Dashboard
+- Real-time monitoring with analytics and file previews  
+- Instant search and filtering  
+- Optimized for sub-second responses  
+
+### 📜 Governance Audit History
+- Every decision logged in **Neon PostgreSQL**  
+- Fully searchable audit trail  
+- CSV export for compliance reporting  
+
+### 🧠 CEO Briefing Engine
+- Generates **"Monday Morning CEO Briefing"**  
+- Summarizes:
+  - Revenue insights  
+  - Task bottlenecks  
+  - Operational performance  
+
+### 🛡️ Resilient Architecture
+- API retry logic  
+- Priority-based task queuing  
+- Fault-tolerant processing system  
 
 ---
 
 ## 🛠 Tech Stack 💻
+
 | Layer | Technology |
-| :--- | :--- |
-| **AI Brain** | Google Gemini 2.0 Flash API 🧠 |
-| **Backend Framework** | FastAPI (Python 3.10+) ⚡ |
-| **Database** | Neon PostgreSQL (Cloud-native) 🐘 |
-| **UI/Frontend** | Bootstrap 5 + Jinja2 Templates 🎨 |
-| **Deployment** | Hugging Face Spaces (Dockerized) 🤗 |
-| **Task Management** | Python Watcher + JSON State Engine 🔄 |
+|------|-----------|
+| **AI Brain** | Gemini API / Claude |
+| **Backend** | FastAPI (Python 3.10+) |
+| **Database** | Neon PostgreSQL |
+| **ERP Integration** | Odoo Community Edition (JSON-RPC) |
+| **Automation** | Playwright, Python-Dotenv, Psycopg2 |
+| **Frontend/UI** | Bootstrap 5 + Jinja2 |
+| **Dashboard (Alt)** | Obsidian (Local-first Vault) |
+| **Deployment** | Docker / Hugging Face Spaces |
 
 ---
 
 ## 🏗 System Architecture & Workflow 📂
 
-### 1. The File Lifecycle 🔄
-The system enforces a strict state-machine for every document:
-1.  **📥 Pending_Approval:** The entry point for all raw documents.
-2.  **⚙️ Processing:** Temporary state where the AI Brain analyzes the content.
-3.  **✅ Approved / ❌ Rejected:** Final destination based on AI governance logic.
-4.  **🏁 Completed / ⚠️ Failed:** Status tracking for operational JSON tasks.
+### 1. File Lifecycle 🔄
 
-### 2. AI Brain & Watcher Logic 📡
-* **Watcher:** A background loop polls the directory structure for new entries every few seconds.
-* **AI Integration:** The system feeds the document content to Gemini 2.0 with a specialized "System Prompt" to ensure output is strictly JSON-formatted for database compatibility.
-* **DB Sync:** Every decision (Confidence Score, Reasoning, Timestamp) is instantly pushed to the Neon PostgreSQL cloud instance.
+Every document follows a strict state machine:
+
+1. 📥 **Pending_Approval** → Entry point  
+2. ⚙️ **Processing** → AI analysis stage  
+3. ✅ **Approved / ❌ Rejected** → Final decision  
+4. 🏁 **Completed / ⚠️ Failed** → Task execution status  
+
+---
+
+### 2. AI Brain Flow 🧠
+
+- Documents are sent to LLM with a **strict system prompt**
+- Output is enforced in **JSON format**
+- Includes:
+  - Decision  
+  - Confidence Score  
+  - Reasoning  
+
+Ensures every action is **audit-defensible**
+
+---
+
+### 3. Watcher & Task Engine 📡
+
+- Background process continuously polls directories  
+- Prioritizes files (e.g., "urgent" tags)  
+- Handles:
+  - API lifecycle  
+  - Retry mechanisms  
+  - Task execution  
+
+---
+
+### 4. Database Sync 🐘
+
+- Uses **PostgreSQL relational schema**  
+- Stores:
+  - Decisions  
+  - Logs  
+  - Task states  
+
+Dashboard queries DB instead of filesystem → **fast + scalable**
+
+---
+
+### 5. Dashboard Interaction 🖥️
+
+- Real-time UI with:
+  - Auto-refresh  
+  - File previews  
+  - Search & filtering  
+- Optimistic UX:
+  - Client-side search  
+  - Lazy-loaded previews  
+
+---
+
+### 6. External System Integrations 🔗
+
+- **Odoo ERP:** Financial automation  
+- **Neon DB:** Cloud audit logging  
+- **Playwright:** Browser-based automation  
+- **Obsidian Vault:** Human-in-the-loop visibility  
 
 ---
 
 ## 📂 Folder Structure 📂
+
 ```text
 .
-├── app.py                  # FastAPI Web Dashboard & API Routes
-├── main.py                 # Core AI Watcher & Task Engine
-├── database.py             # PostgreSQL Connection Logic
-├── templates/              # Jinja2 HTML Files (Dashboard, History)
-├── Pending_Approval/       # Inbound Document Dropzone 📥
-├── Approved/               # AI-Validated Documents ✅
-├── Rejected/               # Discarded/Invalid Documents ❌
-├── Tasks/                  # Operational JSON Tasks (Pending/Completed/Failed) ⚙️
-└── requirements.txt        # Production Dependencies 📦
+├── app.py                  # FastAPI Dashboard & API routes
+├── main.py                 # AI Watcher & Task Engine
+├── heartbeat.py            # System monitoring & orchestration
+├── database.py             # PostgreSQL connection logic
+├── templates/              # Jinja2 UI templates
+├── Pending_Approval/       # Incoming documents 📥
+├── Approved/               # Approved files ✅
+├── Rejected/               # Rejected files ❌
+├── Tasks/                  # JSON task workflows ⚙️
+├── mcp_servers/            # Odoo & Social integrations
+├── CEO_Reports/            # Generated business reports
+├── Vault/                  # Human approval layer
+└── requirements.txt        # Dependencies
 ```
+
+---
+
+## 🔧 Setup & Installation ⚙️
+
+1. Clone the repository  
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Configure `.env`:
+   - Odoo credentials  
+   - Neon DB connection  
+   - API keys (Gemini / Claude)  
+
+4. Run the system:
+   ```bash
+   python heartbeat.py
+   ```
+
 ---
 
 ## 📈 Future Scalability 🚀
 
-* **🤝 Multi-Agent Collaboration:** Integrating specialized AI agents for Finance vs. HR.
-* **🔔 Email/Slack Webhooks:** Instant notifications for high-priority "Approved" files.
-* **🖼️ OCR Integration:** Expanding to handle scanned PDF and Image-based documents.
-* **🔑 SAML/SSO:** Enterprise-grade authentication for dashboard access.
+- 🤝 **Multi-Agent AI System** (Finance, HR, Legal agents)  
+- 🔔 **Slack / Email Webhooks** for real-time alerts  
+- 🖼️ **OCR Support** for scanned documents & images  
+- 🔐 **SAML / SSO Authentication**  
+- ☁️ **Full Cloud-Native Microservices Architecture**  
 
 ---
 
 ## 🏁 Closing Note
 
-The AI Employee Vault demonstrates the transition from simple automation to Autonomous Governance. By combining a robust Python backend with the reasoning capabilities of Gemini 2.0, we have built a system that doesn't just store files—it understands them.
+The **AI Employee Vault** represents a shift from traditional automation to **Autonomous Enterprise Governance**.
+
+It doesn’t just process data—it:
+- Understands context  
+- Makes decisions  
+- Executes actions  
+- Maintains accountability  
+
+A true **AI-powered Digital Employee**.
 
 ---
 
-## 📑 System Architecture Explanation (Judges' Guide)
+## 🏆 Hackathon Context
 
-### 1. 🧠 AI Brain Flow (Contextual Reasoning)
-Unlike traditional rule-based systems, our "Brain" uses a Large Language Model. It receives the document text and evaluates it against enterprise standards. It returns a Confidence Score and Reasoning, ensuring that every automated action is defensible in an audit.
+**Built for:** *Hackathon 0 - Building Autonomous FTEs (2026)*  
 
-### 2. 🔄 Task Engine & Watcher
-The main.py engine operates on a polling interval. It identifies new files, prioritizes them based on metadata (e.g., "urgent" in filename), and handles the API lifecycle. If the AI service is busy, the Retry Mechanism ensures no document is left unprocessed.
-
-### 3. 🐘 Database Sync
-
-We utilize a PostgreSQL relational schema to maintain referential integrity. The dashboard does not read the file system directly for logs; it queries the DB to provide sub-second response times, even with thousands of records.
-
-### 4. 🖥️ Dashboard Interaction
-
-=======
-# 🤖 AI Employee Vault: Autonomous Enterprise Document Governance
-> **"Transforming unstructured corporate data into actionable business intelligence through autonomous AI auditing."**
+This project demonstrates how AI can evolve from an assistant into a **fully autonomous operational unit** within modern enterprises.
 
 ---
-
-## 📌 Problem Statement 📝
-In modern enterprises, the sheer volume of daily documents—invoices, payroll summaries, legal forms, and operational tasks—creates massive administrative bottlenecks. Manual auditing is slow, prone to human error, and lacks real-time visibility. Companies struggle with:
-
-* **⏳ High Latency:** Critical approvals taking days.
-* **🧩 Context Fragmentation:** Decisions made without full data context.
-* **🔍 Lack of Audit Trails:** Difficulty in tracking why a document was approved or rejected.
-
----
-
-## 💡 Solution Overview 🌟
-The **AI Employee Vault** is an autonomous, end-to-end automation platform that acts as a digital compliance officer. It monitors file systems, interprets document context using the **Gemini 2.0 Flash AI**, and executes governance decisions (Approve/Reject) with detailed reasoning—all while maintaining a real-time, searchable cloud audit trail.
-
----
-
-## 🚀 Key Features ✨
-* **🕵️ Autonomous Watcher Engine:** Real-time monitoring of document ingestion points.
-* **🧠 Context-Aware AI Auditing:** Uses LLMs to understand the *intent* of a file, not just keywords.
-* **⚙️ Dynamic Task Engine:** Processes complex JSON-based operational tasks with state management.
-* **📊 Enterprise Dashboard:** Live monitoring with auto-refreshing analytics and file previews.
-* **📜 Governance Audit History:** A searchable database of every AI decision with CSV export capability.
-* **🛡️ Resilient Architecture:** Built-in API retry logic, priority queuing, and robust error handling.
-
----
-
-## 🛠 Tech Stack 💻
-| Layer | Technology |
-| :--- | :--- |
-| **AI Brain** | Google Gemini 2.0 Flash API 🧠 |
-| **Backend Framework** | FastAPI (Python 3.10+) ⚡ |
-| **Database** | Neon PostgreSQL (Cloud-native) 🐘 |
-| **UI/Frontend** | Bootstrap 5 + Jinja2 Templates 🎨 |
-| **Deployment** | Hugging Face Spaces (Dockerized) 🤗 |
-| **Task Management** | Python Watcher + JSON State Engine 🔄 |
-
----
-
-## 🏗 System Architecture & Workflow 📂
-
-### 1. The File Lifecycle 🔄
-The system enforces a strict state-machine for every document:
-1.  **📥 Pending_Approval:** The entry point for all raw documents.
-2.  **⚙️ Processing:** Temporary state where the AI Brain analyzes the content.
-3.  **✅ Approved / ❌ Rejected:** Final destination based on AI governance logic.
-4.  **🏁 Completed / ⚠️ Failed:** Status tracking for operational JSON tasks.
-
-### 2. AI Brain & Watcher Logic 📡
-* **Watcher:** A background loop polls the directory structure for new entries every few seconds.
-* **AI Integration:** The system feeds the document content to Gemini 2.0 with a specialized "System Prompt" to ensure output is strictly JSON-formatted for database compatibility.
-* **DB Sync:** Every decision (Confidence Score, Reasoning, Timestamp) is instantly pushed to the Neon PostgreSQL cloud instance.
-
----
-
-## 📂 Folder Structure 📂
-```text
-.
-├── app.py                  # FastAPI Web Dashboard & API Routes
-├── main.py                 # Core AI Watcher & Task Engine
-├── database.py             # PostgreSQL Connection Logic
-├── templates/              # Jinja2 HTML Files (Dashboard, History)
-├── Pending_Approval/       # Inbound Document Dropzone 📥
-├── Approved/               # AI-Validated Documents ✅
-├── Rejected/               # Discarded/Invalid Documents ❌
-├── Tasks/                  # Operational JSON Tasks (Pending/Completed/Failed) ⚙️
-└── requirements.txt        # Production Dependencies 📦
-```
----
-
-## 📈 Future Scalability 🚀
-
-* **🤝 Multi-Agent Collaboration:** Integrating specialized AI agents for Finance vs. HR.
-* **🔔 Email/Slack Webhooks:** Instant notifications for high-priority "Approved" files.
-* **🖼️ OCR Integration:** Expanding to handle scanned PDF and Image-based documents.
-* **🔑 SAML/SSO:** Enterprise-grade authentication for dashboard access.
-
----
-
-## 🏁 Closing Note
-
-The AI Employee Vault demonstrates the transition from simple automation to Autonomous Governance. By combining a robust Python backend with the reasoning capabilities of Gemini 2.0, we have built a system that doesn't just store files—it understands them.
-
----
-
-## 📑 System Architecture Explanation (Judges' Guide)
-
-### 1. 🧠 AI Brain Flow (Contextual Reasoning)
-Unlike traditional rule-based systems, our "Brain" uses a Large Language Model. It receives the document text and evaluates it against enterprise standards. It returns a Confidence Score and Reasoning, ensuring that every automated action is defensible in an audit.
-
-### 2. 🔄 Task Engine & Watcher
-The main.py engine operates on a polling interval. It identifies new files, prioritizes them based on metadata (e.g., "urgent" in filename), and handles the API lifecycle. If the AI service is busy, the Retry Mechanism ensures no document is left unprocessed.
-
-### 3. 🐘 Database Sync
-
-We utilize a PostgreSQL relational schema to maintain referential integrity. The dashboard does not read the file system directly for logs; it queries the DB to provide sub-second response times, even with thousands of records.
-
-### 4. 🖥️ Dashboard Interaction
-
->>>>>>> fb02f99 (Vault sync: Automated commit at 2026-03-07T20:58:24.199693)
-The UI provides an Optimistic User Experience. Features like "Instant Search" and "Audit CSV Export" are processed client-side where possible, while the "File Preview" securely fetches content from the vault's storage tiers only when requested.
